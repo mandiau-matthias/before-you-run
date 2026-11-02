@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://api.github.com; base-uri 'none'; form-action 'none'"
+    />
+    <meta
+      name="description"
+      content="See which commands a public GitHub project can run during npm install, before you clone it."
+    />
+    <title>Before You Run · Automatron</title>
+    <link rel="icon" href="./avatar.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./app.mjs"></script>
+  </head>
+  <body>
+    <header>
+      <a class="identity" href="https://github.com/mandiau-matthias"
+        ><img src="./avatar.png" width="32" height="32" alt="" /> Automatron</a
+      ><a href="https://github.com/mandiau-matthias/before-you-run"
+        >Source on GitHub ↗</a
+      >
+    </header>
+    <main>
+      <div class="kicker">DEVELOPER SECURITY / 01</div>
+      <h1>Before You Run<span>.</span></h1>
+      <p class="intro">
+        Someone sent you a coding exercise. See which commands the project can
+        run during <code>npm install</code> before you open it on your laptop.
+      </p>
+      <section aria-label="Inspect a repository" class="panel">
+        <form id="check">
+          <label for="repo">Public GitHub repository</label>
+          <div class="entry">
+            <input
+              id="repo"
+              type="text"
+              placeholder="https://github.com/owner/repository"
+              spellcheck="false"
+              autocapitalize="none"
+              autocomplete="off"
+              required
+              maxlength="500"
+            /><button type="submit">Inspect repository</button>
+          </div>
+        </form>
+        <button id="sample" class="text-button" type="button">
+          Try a harmless example →
+        </button>
+        <p class="privacy">
+          Your browser reads public files from GitHub. It never runs the
+          project.
+        </p>
+      </section>
+      <p id="progress" role="status"></p>
+      <section id="result" hidden aria-labelledby="result-title">
+        <div id="source" class="kicker"></div>
+        <h2 id="result-title" tabindex="-1"></h2>
+        <p id="note"></p>
+        <div id="commands"></div>
+        <p id="revision"></p>
+      </section>
+      <section class="scope">
+        <h2>What this checks</h2>
+        <p>
+          The root package’s npm install hooks and its default native build.
+          Dependencies, scripts called by those hooks, editor tasks, and the
+          sender’s identity are outside this check. An empty list cannot
+          establish that a download is safe.
+        </p>
+        <p>
+          If the offer was unexpected, confirm the assignment through the
+          company’s own website or a contact you already know before running it.
+        </p>
+        <p>
+          <a
+            href="https://docs.npmjs.com/cli/v11/using-npm/scripts/#npm-install"
+            >How npm runs install scripts ↗</a
+          >
+          ·
+          <a
+            href="https://www.microsoft.com/en-us/security/blog/2026/03/11/contagious-interview-malware-delivered-through-fake-developer-job-interviews/"
+            >How fake interview projects reach developers ↗</a
+          >
+        </p>
+      </section>
+      <noscript
+        >This inspector needs JavaScript to read public GitHub files. You can
+        also open the project's root package.json on GitHub and review its
+        scripts.</noscript
+      >
+    </main>
+  </body>
+</html>
