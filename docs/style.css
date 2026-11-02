@@ -4,7 +4,7 @@
   --surface: #202325;
   --text: #f4f0e6;
   --muted: #b9b9ae;
-  --accent: #ffc464;
+  --accent: #c5afff;
   --line: #414442;
   font:
     16px/1.55 system-ui,
@@ -114,7 +114,7 @@ label {
   border-radius: 0.3rem;
   padding: 0.7rem 1.1rem;
   background: var(--accent);
-  color: #201a10;
+  color: #201b2d;
   cursor: pointer;
 }
 .text-button {
@@ -195,7 +195,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 h2:focus-visible {
-  outline: 3px solid #ffd99d;
+  outline: 3px solid #e1d5ff;
   outline-offset: 3px;
 }
 [hidden] {
